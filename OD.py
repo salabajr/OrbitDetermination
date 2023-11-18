@@ -7,7 +7,7 @@ obliquity = radians(0) #degrees -> radians
 #IMPORTANT FUNCTIONS TO BE USED IN THE PROGRAM
 #converts values to julian date
 def julian(year,month,day,UTC):
-return(367 * year - int(7 * (year + int( (month + 9) / 12 ) ) / 4) + int(275 * month / 9) + day + 1721013.5 + UTC / 24)
+  return(367 * year - int(7 * (year + int( (month + 9) / 12 ) ) / 4) + int(275 * month / 9) + day + 1721013.5 + UTC / 24)
   
 #takes raw line from input file and converts it into usuable values in usuable units
 def cleanObs(rawObs):
@@ -31,11 +31,11 @@ cos(obsData[1]) * sin(obsData[0]),
 sin(obsData[1])])
 #takes in cleaned data and rhohats to return Ds
 def getD(obsData,rhoHatList):
-D0 = np.dot(rhoHatList[0],np.cross(rhoHatList[1],rhoHatList[2]))
-D1 = np.dot(np.cross(obsData[3],rhoHatList[1]),rhoHatList[2])
-D2 = np.dot(np.cross(rhoHatList[0],obsData[3]),rhoHatList[2])
-D3 = np.dot(np.cross(rhoHatList[1],obsData[3]),rhoHatList[0])
-return(D0,D1,D2,D3)
+  D0 = np.dot(rhoHatList[0],np.cross(rhoHatList[1],rhoHatList[2]))
+  D1 = np.dot(np.cross(obsData[3],rhoHatList[1]),rhoHatList[2])
+  D2 = np.dot(np.cross(rhoHatList[0],obsData[3]),rhoHatList[2])
+  D3 = np.dot(np.cross(rhoHatList[1],obsData[3]),rhoHatList[0])
+  return(D0,D1,D2,D3)
 #6 orbital element functions
 def get_a(radius,speed):
 return((2/radius - speed**2)**(-1))
